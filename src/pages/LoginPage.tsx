@@ -3,11 +3,13 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Mail, Lock, Eye, EyeOff, Heart } from 'lucide-react'
 import ToastContainer from '../components/ToastContainer'
 import { useToast } from '../hooks/useToast'
+import { useLanguage } from '../context/LanguageContext'
 import api from '../services/api'
 import './AuthPages.css'
 
 export default function LoginPage() {
   const navigate = useNavigate()
+  const { t } = useLanguage()
   const { toasts, success: showSuccess, error, closeToast } = useToast()
   const [showPassword, setShowPassword] = useState(false)
   const [formData, setFormData] = useState({
@@ -106,13 +108,13 @@ export default function LoginPage() {
                 <Heart className="logo-icon" />
                 <span>Lagna Sohalaa</span>
               </Link>
-              <h1>Sign In</h1>
-              <p>Welcome back! Please enter your details</p>
+              <h1>{t('login.title')}</h1>
+              <p>{t('login.subtitle')}</p>
             </div>
 
             <form onSubmit={handleSubmit} className="auth-form">
               <div className="form-group">
-                <label htmlFor="email" className="form-label">Email Address</label>
+                <label htmlFor="email" className="form-label">{t('register.email')}</label>
                 <div className="input-with-icon">
                   <Mail className="input-icon" size={18} />
                   <input
@@ -122,7 +124,7 @@ export default function LoginPage() {
                     value={formData.email}
                     onChange={handleChange}
                     className={`form-input ${errors.email ? 'error' : ''}`}
-                    placeholder="you@example.com"
+                    placeholder={t('login.emailPlaceholder')}
                     aria-invalid={!!errors.email}
                     aria-describedby={errors.email ? 'email-error' : undefined}
                   />
@@ -133,7 +135,7 @@ export default function LoginPage() {
               </div>
 
               <div className="form-group">
-                <label htmlFor="password" className="form-label">Password</label>
+                <label htmlFor="password" className="form-label">{t('register.password')}</label>
                 <div className="input-with-icon">
                   <Lock className="input-icon" size={18} />
                   <input
@@ -143,7 +145,7 @@ export default function LoginPage() {
                     value={formData.password}
                     onChange={handleChange}
                     className={`form-input ${errors.password ? 'error' : ''}`}
-                    placeholder="Enter your password"
+                    placeholder={t('login.passwordPlaceholder')}
                     aria-invalid={!!errors.password}
                     aria-describedby={errors.password ? 'password-error' : undefined}
                   />
@@ -169,10 +171,10 @@ export default function LoginPage() {
                     checked={formData.rememberMe}
                     onChange={handleChange}
                   />
-                  <span>Remember me</span>
+                  <span>{t('login.rememberMe')}</span>
                 </label>
                 <Link to="/forgot-password" className="forgot-link">
-                  Forgot password?
+                  {t('login.forgotPassword')}
                 </Link>
               </div>
 
@@ -184,10 +186,10 @@ export default function LoginPage() {
                 {isSubmitting ? (
                   <>
                     <span className="spinner" style={{ width: 20, height: 20 }}></span>
-                    Signing in...
+                    {t('login.signingIn')}
                   </>
                 ) : (
-                  'Sign In'
+                  t('login.signInButton')
                 )}
               </button>
 
@@ -215,8 +217,8 @@ export default function LoginPage() {
             </form>
 
             <p className="auth-footer">
-              Don't have an account?{' '}
-              <Link to="/register">Create account</Link>
+              {t('login.noAccount')}{' '}
+              <Link to="/register">{t('login.createAccount')}</Link>
             </p>
           </div>
         </div>

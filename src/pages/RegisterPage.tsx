@@ -3,11 +3,13 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Mail, Lock, Eye, EyeOff, User, Phone, Calendar, Heart } from 'lucide-react'
 import ToastContainer from '../components/ToastContainer'
 import { useToast } from '../hooks/useToast'
+import { useLanguage } from '../context/LanguageContext'
 import api from '../services/api'
 import './AuthPages.css'
 
 export default function RegisterPage() {
   const navigate = useNavigate()
+  const { t } = useLanguage()
   const { toasts, success, error, closeToast } = useToast()
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
@@ -152,8 +154,8 @@ export default function RegisterPage() {
           <div className="auth-image-overlay">
             <div className="auth-image-content">
               <Heart className="auth-logo-icon" />
-              <h2>Join Our Community</h2>
-              <p>Create your profile and start your journey to finding true love</p>
+              <h2>{t('register.joinCommunity')}</h2>
+              <p>{t('register.joinDesc')}</p>
             </div>
           </div>
         </div>
@@ -165,20 +167,20 @@ export default function RegisterPage() {
                 <Heart className="logo-icon" />
                 <span>Lagna Sohalaa</span>
               </Link>
-              <h1>Create Account</h1>
-              <p>Fill in your details to get started</p>
+              <h1>{t('register.title')}</h1>
+              <p>{t('register.subtitle')}</p>
             </div>
 
             {/* Progress Steps */}
             <div className="progress-steps">
               <div className={`progress-step ${step >= 1 ? 'active' : ''}`}>
                 <div className="step-number">1</div>
-                <span>Basic Info</span>
+                <span>{t('register.step1')}</span>
               </div>
               <div className="progress-line"></div>
               <div className={`progress-step ${step >= 2 ? 'active' : ''}`}>
                 <div className="step-number">2</div>
-                <span>Account Setup</span>
+                <span>{t('register.step2')}</span>
               </div>
             </div>
 
@@ -187,7 +189,7 @@ export default function RegisterPage() {
                 <>
                   <div className="form-row">
                     <div className="form-group">
-                      <label htmlFor="firstName" className="form-label">First Name</label>
+                      <label htmlFor="firstName" className="form-label">{t('register.firstName')}</label>
                       <div className="input-with-icon">
                         <User className="input-icon" size={18} />
                         <input
@@ -197,7 +199,7 @@ export default function RegisterPage() {
                           value={formData.firstName}
                           onChange={handleChange}
                           className={`form-input ${errors.firstName ? 'error' : ''}`}
-                          placeholder="First name"
+                          placeholder={t('register.firstName')}
                         />
                       </div>
                       {errors.firstName && (
@@ -205,7 +207,7 @@ export default function RegisterPage() {
                       )}
                     </div>
                     <div className="form-group">
-                      <label htmlFor="lastName" className="form-label">Last Name</label>
+                      <label htmlFor="lastName" className="form-label">{t('register.lastName')}</label>
                       <div className="input-with-icon">
                         <User className="input-icon" size={18} />
                         <input
@@ -215,7 +217,7 @@ export default function RegisterPage() {
                           value={formData.lastName}
                           onChange={handleChange}
                           className={`form-input ${errors.lastName ? 'error' : ''}`}
-                          placeholder="Last name"
+                          placeholder={t('register.lastName')}
                         />
                       </div>
                       {errors.lastName && (
@@ -225,7 +227,7 @@ export default function RegisterPage() {
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="email" className="form-label">Email Address</label>
+                    <label htmlFor="email" className="form-label">{t('register.email')}</label>
                     <div className="input-with-icon">
                       <Mail className="input-icon" size={18} />
                       <input
@@ -235,7 +237,7 @@ export default function RegisterPage() {
                         value={formData.email}
                         onChange={handleChange}
                         className={`form-input ${errors.email ? 'error' : ''}`}
-                        placeholder="you@example.com"
+                        placeholder={t('register.email')}
                       />
                     </div>
                     {errors.email && (
@@ -244,7 +246,7 @@ export default function RegisterPage() {
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="phone" className="form-label">Phone Number</label>
+                    <label htmlFor="phone" className="form-label">{t('register.phone')}</label>
                     <div className="input-with-icon">
                       <Phone className="input-icon" size={18} />
                       <input
@@ -267,7 +269,7 @@ export default function RegisterPage() {
                     className="btn btn-primary btn-lg auth-submit"
                     onClick={handleNext}
                   >
-                    Continue
+                    {t('register.continue')}
                   </button>
                 </>
               )}
@@ -276,7 +278,7 @@ export default function RegisterPage() {
                 <>
                   <div className="form-row">
                     <div className="form-group">
-                      <label htmlFor="gender" className="form-label">I am a</label>
+                      <label htmlFor="gender" className="form-label">{t('register.gender')}</label>
                       <select
                         id="gender"
                         name="gender"
@@ -284,16 +286,16 @@ export default function RegisterPage() {
                         onChange={handleChange}
                         className={`form-input form-select ${errors.gender ? 'error' : ''}`}
                       >
-                        <option value="">Select Gender</option>
-                        <option value="male">Groom</option>
-                        <option value="female">Bride</option>
+                        <option value="">{t('register.selectGender')}</option>
+                        <option value="male">{t('register.male')}</option>
+                        <option value="female">{t('register.female')}</option>
                       </select>
                       {errors.gender && (
                         <span className="error-message">{errors.gender}</span>
                       )}
                     </div>
                     <div className="form-group">
-                      <label htmlFor="dateOfBirth" className="form-label">Date of Birth</label>
+                      <label htmlFor="dateOfBirth" className="form-label">{t('register.dateOfBirth')}</label>
                       <div className="input-with-icon">
                         <Calendar className="input-icon" size={18} />
                         <input
@@ -312,7 +314,7 @@ export default function RegisterPage() {
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="password" className="form-label">Password</label>
+                    <label htmlFor="password" className="form-label">{t('register.password')}</label>
                     <div className="input-with-icon">
                       <Lock className="input-icon" size={18} />
                       <input
@@ -322,7 +324,7 @@ export default function RegisterPage() {
                         value={formData.password}
                         onChange={handleChange}
                         className={`form-input ${errors.password ? 'error' : ''}`}
-                        placeholder="Create a password"
+                        placeholder={t('register.password')}
                       />
                       <button
                         type="button"
@@ -338,7 +340,7 @@ export default function RegisterPage() {
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="confirmPassword" className="form-label">Confirm Password</label>
+                    <label htmlFor="confirmPassword" className="form-label">{t('register.confirmPassword')}</label>
                     <div className="input-with-icon">
                       <Lock className="input-icon" size={18} />
                       <input
@@ -348,7 +350,7 @@ export default function RegisterPage() {
                         value={formData.confirmPassword}
                         onChange={handleChange}
                         className={`form-input ${errors.confirmPassword ? 'error' : ''}`}
-                        placeholder="Confirm your password"
+                        placeholder={t('register.confirmPassword')}
                       />
                       <button
                         type="button"
@@ -372,9 +374,9 @@ export default function RegisterPage() {
                         onChange={handleChange}
                       />
                       <span>
-                        I agree to the{' '}
-                        <Link to="/terms">Terms of Service</Link> and{' '}
-                        <Link to="/privacy">Privacy Policy</Link>
+                        {t('register.agreeToTerms')}{' '}
+                        <Link to="/terms">{t('register.termsOfService')}</Link> {t('register.and')}{' '}
+                        <Link to="/privacy">{t('register.privacyPolicy')}</Link>
                       </span>
                     </label>
                     {errors.agreeToTerms && (
@@ -388,7 +390,7 @@ export default function RegisterPage() {
                       className="btn btn-secondary btn-lg"
                       onClick={() => setStep(1)}
                     >
-                      Back
+                      {t('register.back')}
                     </button>
                     <button
                       type="submit"
@@ -398,10 +400,10 @@ export default function RegisterPage() {
                       {isSubmitting ? (
                         <>
                           <span className="spinner" style={{ width: 20, height: 20 }}></span>
-                          Creating...
+                          {t('register.creating')}
                         </>
                       ) : (
-                        'Create Account'
+                        t('register.createAccount')
                       )}
                     </button>
                   </div>
@@ -410,8 +412,8 @@ export default function RegisterPage() {
             </form>
 
             <p className="auth-footer">
-              Already have an account?{' '}
-              <Link to="/login">Sign in</Link>
+              {t('register.alreadyHaveAccount')}{' '}
+              <Link to="/login">{t('register.signIn')}</Link>
             </p>
           </div>
         </div>
