@@ -1,0 +1,79 @@
+.verification-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.badge-sm {
+  width: 20px;
+  height: 20px;
+}
+
+.badge-md {
+  width: 24px;
+  height: 24px;
+}
+
+.badge-lg {
+  width: 32px;
+  height: 32px;
+}
+
+.badge-verified {
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.badge-verified svg {
+  fill: #10b981;
+}
+
+.badge-premium {
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.1);
+}
+
+.badge-premium svg {
+  fill: #f59e0b;
+}
+
+.badge-active {
+  color: #3b82f6;
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.active-dot {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.badge-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+  padding: 0 0.5rem;
+}
+
+/* With label styling */
+.verification-badge.badge-verified.badge-label,
+.verification-badge.badge-premium.badge-label,
+.verification-badge.badge-active.badge-label {
+  border-radius: 12px;
+  padding: 0.25rem 0.75rem;
+  width: auto;
+  height: auto;
+}

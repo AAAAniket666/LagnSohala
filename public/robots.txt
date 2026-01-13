@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Disallow private/admin pages
+Disallow: /admin/
+Disallow: /api/
+Disallow: /dashboard/
+Disallow: /settings/
+
+# Allow search engines to access images
+Allow: /assets/
+Allow: /images/
+
+# Sitemap location
+Sitemap: https://lagn-sohala-five.vercel.app/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1

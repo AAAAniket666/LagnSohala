@@ -31,6 +31,7 @@ import { profiles, weddingServices, successStories } from '../data/mockData'
 import ProfileCard from '../components/ProfileCard'
 import ServiceCard from '../components/ServiceCard'
 import SEO from '../components/SEO'
+import SuccessMetrics from '../components/SuccessMetrics'
 import './HomePage.css'
 
 export default function HomePage() {
@@ -342,6 +343,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Success Metrics Section */}
+      <SuccessMetrics />
 
       {/* How It Works - Interactive Timeline */}
       <section className="how-it-works-new section bg-secondary">

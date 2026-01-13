@@ -1,0 +1,124 @@
+.success-metrics {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: white;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.metric-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+
+.metric-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.metric-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(196, 30, 58, 0.5);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(196, 30, 58, 0.2);
+}
+
+.metric-icon {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #c41e3a 0%, #8b1527 100%);
+  border-radius: 16px;
+  flex-shrink: 0;
+}
+
+.metric-icon svg {
+  width: 32px;
+  height: 32px;
+  stroke: white;
+  fill: none;
+}
+
+.metric-content {
+  flex: 1;
+}
+
+.metric-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  line-height: 1;
+  display: block;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #fff 0%, #e0e0e0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.metric-suffix {
+  font-size: 1.5rem;
+  margin-left: 0.25rem;
+}
+
+.metric-label {
+  font-size: 0.95rem;
+  opacity: 0.8;
+  margin: 0;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .success-metrics {
+    padding: 3rem 0;
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .metric-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .metric-icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .metric-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .metric-value {
+    font-size: 2rem;
+  }
+
+  .metric-suffix {
+    font-size: 1.2rem;
+  }
+
+  .metric-label {
+    font-size: 0.85rem;
+  }
+}
