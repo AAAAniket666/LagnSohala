@@ -1,5 +1,6 @@
-import { Heart, MapPin, GraduationCap, Briefcase, CheckCircle, Star, MessageCircle, Eye, Sparkles } from 'lucide-react'
+import { Heart, MapPin, GraduationCap, Briefcase, MessageCircle, Eye, Sparkles } from 'lucide-react'
 import { Profile } from '../types'
+import VerificationBadge from './VerificationBadge'
 import './ProfileCard.css'
 
 interface ProfileCardProps {
@@ -21,28 +22,19 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
           className="profile-image"
         />
         
-        {/* Top badges */}
+        {/* Top badges - Using new VerificationBadge component */}
         <div className="profile-badges-top">
           {profile.verified && (
-            <span className="verified-badge" title="Verified Profile">
-              <CheckCircle size={12} />
-              Verified
-            </span>
+            <VerificationBadge type="verified" size="sm" showLabel />
           )}
           {profile.premium && (
-            <span className="premium-badge" title="Premium Member">
-              <Star size={12} />
-              Premium
-            </span>
+            <VerificationBadge type="premium" size="sm" showLabel />
           )}
         </div>
 
-        {/* Online indicator */}
+        {/* Online/Active indicator */}
         {isOnline && (
-          <span className="online-indicator">
-            <span className="online-dot"></span>
-            Online
-          </span>
+          <VerificationBadge type="active" size="sm" showLabel />
         )}
 
         {/* Match percentage */}
