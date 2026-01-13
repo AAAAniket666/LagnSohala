@@ -34,7 +34,7 @@ import SEO from '../components/SEO'
 import './HomePage.css'
 
 export default function HomePage() {
-  const { t } = useLanguage()
+  const { } = useLanguage()
   const [activeTab, setActiveTab] = useState<'bride' | 'groom'>('bride')
   const [searchAge, setSearchAge] = useState({ min: '21', max: '30' })
   const [searchReligion, setSearchReligion] = useState('')

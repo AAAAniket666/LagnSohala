@@ -1,4 +1,3 @@
-import { ReactNode } from 'react'
 import Toast, { ToastProps } from './Toast'
 
 interface ToastContainerProps {

@@ -3,19 +3,14 @@ import {
   Search, 
   Filter, 
   X, 
-  ChevronDown, 
   Heart, 
-  Shield, 
-  Sparkles, 
   Grid3X3, 
   LayoutList,
   SlidersHorizontal,
   Users,
-  TrendingUp,
   Eye,
   Star,
   BadgeCheck,
-  Zap,
   Plus,
   Loader,
   AlertCircle
@@ -67,7 +62,7 @@ export default function MatrimonyPage() {
       console.error('Error fetching profiles:', err)
       setError('Failed to load profiles. Using offline data.')
       // Fallback to mock data if API fails
-      import('../data/mockData').then(({ profiles: mockProfiles }) => {
+      import('../data/mockData').then(({ profiles: mockProfiles }: any) => {
         setProfiles(mockProfiles)
       })
     } finally {

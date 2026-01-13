@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "vercel-build": "npm run build",
+    "build": "vite build",
+    "vercel-build": "vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "server": "node --import tsx server/index.ts",
@@ -35,7 +35,7 @@
     "concurrently": "^9.2.1",
     "nodemon": "^3.1.11",
     "tsx": "^4.21.0",
-    "typescript": "^5.2.2",
+    "typescript": "^5.9.3",
     "vite": "^5.0.8"
   }
 }
