@@ -503,7 +503,8 @@
 /* ============================================
    SIDEBAR FILTERS - MODERN & SPACIOUS
    ============================================ */
-.filters-sidebar {\n  background: var(--color-bg-primary);
+.filters-sidebar {
+  background: var(--color-bg-primary);
   border-radius: 1.5rem;
   padding: 2rem;
   position: sticky;
