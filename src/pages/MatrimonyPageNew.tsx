@@ -191,23 +191,31 @@ export default function MatrimonyPage() {
               <p>Browse {stats?.total || profiles.length}+ verified profiles</p>
             </div>
             
-            <div className="live-stats-mini">
-              <div className="stat-pill">
-                <Users size={16} />
-                <span><strong>{stats?.total || profiles.length || 15234}</strong> Active Profiles</span>
-              </div>
-              <div className="stat-pill">
-                <BadgeCheck size={16} />
-                <span><strong>{stats?.verified || 8456}</strong> Verified</span>
-              </div>
-              <div className="stat-pill">
-                <Star size={16} />
-                <span><strong>{stats?.premium || 3219}</strong> Premium</span>
-              </div>
-              <div className="stat-pill stat-pill-pulse">
-                <div className="pulse-dot"></div>
-                <span><strong>2,345</strong> Online Now</span>
-              </div>
+            <button 
+              className="btn btn-primary btn-create-profile"
+              onClick={() => setShowCreateModal(true)}
+            >
+              <Plus size={20} />
+              Create Profile
+            </button>
+          </div>
+
+          <div className="live-stats-mini">
+            <div className="stat-pill">
+              <Users size={16} />
+              <span><strong>{stats?.total || profiles.length || 15234}</strong> Active Profiles</span>
+            </div>
+            <div className="stat-pill">
+              <BadgeCheck size={16} />
+              <span><strong>{stats?.verified || 8456}</strong> Verified</span>
+            </div>
+            <div className="stat-pill">
+              <Star size={16} />
+              <span><strong>{stats?.premium || 3219}</strong> Premium</span>
+            </div>
+            <div className="stat-pill stat-pill-pulse">
+              <div className="pulse-dot"></div>
+              <span><strong>2,345</strong> Online Now</span>
             </div>
           </div>
         </div>
@@ -234,14 +242,6 @@ export default function MatrimonyPage() {
             </div>
 
             <div className="action-buttons">
-              <button 
-                className="btn btn-primary"
-                onClick={() => setShowCreateModal(true)}
-              >
-                <Plus size={18} />
-                Create Profile
-              </button>
-              
               <button
                 className={`btn-icon ${showFilters ? 'active' : ''}`}
                 onClick={() => setShowFilters(!showFilters)}
