@@ -96,9 +96,18 @@ app.use((err, req, res, next) => {
 
 // Export for Vercel serverless
 export default async function handler(req, res) {
-  // Ensure database connection
-  await ensureDbConnection();
-  
+  try {
+    // Ensure database connection before routing
+    await ensureDbConnection();
+  } catch (err) {
+    console.error('Database connection error:', err);
+    return res.status(500).json({
+      success: false,
+      message: 'Database connection failed',
+      error: process.env.NODE_ENV === 'development' ? err.message : undefined,
+    });
+  }
+
   // Let Express handle the request
   return app(req, res);
 }
