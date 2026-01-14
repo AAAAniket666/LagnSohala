@@ -43,6 +43,7 @@ const allowedOrigins = [
   'http://localhost:5174',
   'https://lagnasohala.vercel.app',
   'https://lagn-sohala-demo.vercel.app',
+  'https://lagn-sohala-five.vercel.app',
   deploymentHost,
   ...envAllowed,
 ].filter(Boolean);
