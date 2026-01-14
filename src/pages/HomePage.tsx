@@ -14,9 +14,6 @@ import {
   Phone,
   Play,
   ChevronDown,
-  TrendingUp,
-  Award,
-  Clock,
   MessageCircle,
   Zap,
   Crown,
@@ -120,47 +117,17 @@ export default function HomePage() {
               </div>
               
               <h1 className="hero-title-new">
-                Find Your <span className="highlight">Perfect Match</span><br/>
-                Start Your Forever
+                Find your partner with verified profiles
               </h1>
               
               <p className="hero-subtitle-new">
-                Join 10,000+ verified profiles. AI-powered matching. 
-                Complete wedding planning - all in one place.
+                Trusted matrimony plus complete wedding services. Clear, safe, and simple from search to celebration.
               </p>
 
-              {/* Quick Match Stats */}
-              <div className="quick-stats">
-                <div className="quick-stat">
-                  <TrendingUp size={20} className="stat-icon" />
-                  <div>
-                    <span className="stat-value">93%</span>
-                    <span className="stat-desc">Match Success</span>
-                  </div>
-                </div>
-                <div className="quick-stat">
-                  <Clock size={20} className="stat-icon" />
-                  <div>
-                    <span className="stat-value">21 Days</span>
-                    <span className="stat-desc">Avg. Time to Match</span>
-                  </div>
-                </div>
-                <div className="quick-stat">
-                  <Award size={20} className="stat-icon" />
-                  <div>
-                    <span className="stat-value">4.9★</span>
-                    <span className="stat-desc">User Rating</span>
-                  </div>
-                </div>
+              <div className="hero-cta-row">
+                <Link to="/matrimony" className="btn btn-primary btn-lg">Browse Profiles</Link>
+                <Link to="/services" className="btn btn-secondary btn-sm">Explore Services</Link>
               </div>
-
-              {/* Video CTA */}
-              <button className="video-cta">
-                <div className="play-btn">
-                  <Play size={20} />
-                </div>
-                <span>Watch Success Stories</span>
-              </button>
             </div>
 
             {/* Right - Quick Search Widget */}

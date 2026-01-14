@@ -133,7 +133,7 @@
 .form-group textarea:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 4px rgba(196, 30, 58, 0.1);
+  box-shadow: 0 0 0 4px rgba(0, 78, 124, 0.12);
   transform: translateY(-1px);
 }
 

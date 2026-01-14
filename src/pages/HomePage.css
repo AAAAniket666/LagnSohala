@@ -6,7 +6,7 @@
    LIVE ACTIVITY BANNER
    ============================================ */
 .live-banner {
-  background: linear-gradient(90deg, #1A1A2E 0%, #C41E3A 50%, #1A1A2E 100%);
+  background: linear-gradient(90deg, rgba(0, 78, 124, 0.95) 0%, rgba(0, 62, 98, 0.95) 100%);
   padding: 0.5rem 0;
   position: fixed;
   top: 72px;
@@ -85,9 +85,9 @@
   inset: 0;
   background: linear-gradient(
     135deg,
-    rgba(26, 26, 46, 0.95) 0%,
-    rgba(196, 30, 58, 0.85) 50%,
-    rgba(26, 26, 46, 0.95) 100%
+    rgba(0, 62, 98, 0.9) 0%,
+    rgba(0, 78, 124, 0.9) 50%,
+    rgba(0, 46, 80, 0.92) 100%
   );
 }
 
@@ -135,75 +135,17 @@
 .hero-subtitle-new {
   font-size: 1.125rem;
   opacity: 0.9;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   line-height: 1.7;
   animation: fadeInUp 0.6s ease-out 0.2s backwards;
 }
 
-/* Quick Stats in Hero */
-.quick-stats {
-  display: flex;
-  gap: 2rem;
-  margin-bottom: 2rem;
-  animation: fadeInUp 0.6s ease-out 0.3s backwards;
-}
-
-.quick-stat {
+.hero-cta-row {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  backdrop-filter: blur(10px);
-}
-
-.quick-stat .stat-icon {
-  color: var(--color-gold);
-}
-
-.quick-stat .stat-value {
-  display: block;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: white;
-}
-
-.quick-stat .stat-desc {
-  font-size: 0.75rem;
-  opacity: 0.8;
-}
-
-/* Video CTA */
-.video-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.75rem 1.5rem 0.75rem 0.75rem;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 50px;
-  color: white;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  animation: fadeInUp 0.6s ease-out 0.4s backwards;
-}
-
-.video-cta:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateX(5px);
-}
-
-.play-btn {
-  width: 40px;
-  height: 40px;
-  background: var(--color-gold);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #1A1A2E;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.6s ease-out 0.3s backwards;
 }
 
 /* ============================================
@@ -340,7 +282,7 @@
   justify-content: center;
   gap: 0.5rem;
   padding: 1rem;
-  background: linear-gradient(135deg, var(--color-primary), #E84A5F);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-gold));
   color: white;
   border: none;
   border-radius: 12px;
@@ -354,7 +296,7 @@
 
 .search-submit:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(196, 30, 58, 0.4);
+  box-shadow: 0 12px 32px rgba(0, 78, 124, 0.25);
 }
 
 .widget-footer {
@@ -414,9 +356,9 @@
 
 .proof-item.featured {
   padding: 1rem 2rem;
-  background: linear-gradient(135deg, rgba(196, 30, 58, 0.1), rgba(212, 175, 55, 0.1));
+  background: linear-gradient(135deg, rgba(0, 78, 124, 0.08), rgba(246, 166, 35, 0.12));
   border-radius: 12px;
-  border: 1px solid rgba(196, 30, 58, 0.2);
+  border: 1px solid rgba(0, 78, 124, 0.18);
 }
 
 .proof-icon {
@@ -501,8 +443,8 @@
 .section-badge {
   display: inline-block;
   padding: 0.5rem 1rem;
-  background: linear-gradient(135deg, rgba(196, 30, 58, 0.1), rgba(212, 175, 55, 0.1));
-  border: 1px solid rgba(196, 30, 58, 0.2);
+  background: linear-gradient(135deg, rgba(0, 78, 124, 0.08), rgba(246, 166, 35, 0.12));
+  border: 1px solid rgba(0, 78, 124, 0.2);
   border-radius: 50px;
   font-size: 0.875rem;
   font-weight: 600;
@@ -539,7 +481,7 @@
 }
 
 .value-card.primary {
-  background: linear-gradient(135deg, var(--color-primary), #E84A5F);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
   color: white;
   border: none;
 }
@@ -558,7 +500,7 @@
 }
 
 .value-card.highlight {
-  border: 2px solid var(--color-gold);
+  border: 2px solid rgba(246, 166, 35, 0.7);
 }
 
 .card-ribbon {
@@ -567,7 +509,7 @@
   right: -2rem;
   padding: 0.25rem 2rem;
   background: var(--color-gold);
-  color: #1A1A2E;
+  color: #0F1B30;
   font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -577,7 +519,7 @@
 .value-icon {
   width: 64px;
   height: 64px;
-  background: linear-gradient(135deg, rgba(196, 30, 58, 0.1), rgba(212, 175, 55, 0.1));
+  background: linear-gradient(135deg, rgba(0, 78, 124, 0.08), rgba(246, 166, 35, 0.12));
   border-radius: 16px;
   display: flex;
   align-items: center;
@@ -724,7 +666,7 @@
 }
 
 .journey-step.final .step-marker span {
-  color: #1A1A2E;
+  color: #0F1B30;
 }
 
 .step-content {
@@ -740,7 +682,7 @@
   width: 50px;
   height: 50px;
   margin: 0 auto 1rem;
-  background: linear-gradient(135deg, rgba(196, 30, 58, 0.1), rgba(212, 175, 55, 0.1));
+  background: linear-gradient(135deg, rgba(0, 78, 124, 0.08), rgba(246, 166, 35, 0.12));
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -766,7 +708,7 @@
 
 .step-time {
   font-size: 0.8rem;
-  color: var(--color-gold);
+  color: var(--color-primary);
   font-weight: 500;
 }
 
@@ -859,7 +801,7 @@
    SUCCESS STORIES NEW
    ============================================ */
 .bg-gradient {
-  background: linear-gradient(135deg, var(--color-primary), #8B1527, #1A1A2E);
+  background: linear-gradient(135deg, #004E7C, #022A46, #001829);
 }
 
 .section-title.light {
@@ -1050,7 +992,7 @@
 }
 
 .floating-card svg {
-  color: var(--color-gold);
+  color: var(--color-primary);
 }
 
 @keyframes float {
@@ -1105,7 +1047,7 @@
   text-align: center;
   position: relative;
   border: 2px solid var(--color-primary);
-  box-shadow: 0 20px 50px rgba(196, 30, 58, 0.15);
+  box-shadow: 0 20px 50px rgba(0, 78, 124, 0.16);
 }
 
 .price-badge {
@@ -1171,17 +1113,17 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  background: linear-gradient(135deg, rgba(74, 222, 128, 0.1), rgba(74, 222, 128, 0.2));
+  background: linear-gradient(135deg, rgba(0, 78, 124, 0.08), rgba(246, 166, 35, 0.16));
   border-radius: 50px;
   font-weight: 600;
-  color: #16A34A;
+  color: var(--color-primary);
 }
 
 /* ============================================
    FINAL CTA
    ============================================ */
 .final-cta {
-  background: linear-gradient(135deg, #1A1A2E 0%, var(--color-primary) 50%, #1A1A2E 100%);
+  background: linear-gradient(135deg, #002742 0%, #004E7C 50%, #001A2E 100%);
   padding: 5rem 0;
   position: relative;
   overflow: hidden;
@@ -1208,8 +1150,8 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  background: rgba(212, 175, 55, 0.2);
-  border: 1px solid rgba(212, 175, 55, 0.4);
+  background: rgba(246, 166, 35, 0.2);
+  border: 1px solid rgba(246, 166, 35, 0.4);
   border-radius: 50px;
   font-size: 0.9rem;
   color: var(--color-gold);
@@ -1370,11 +1312,6 @@
 @media (max-width: 768px) {
   .live-stats {
     display: none;
-  }
-
-  .quick-stats {
-    flex-direction: column;
-    gap: 1rem;
   }
 
   .hero-search-widget {
