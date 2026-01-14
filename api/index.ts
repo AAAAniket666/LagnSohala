@@ -2,15 +2,15 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import connectDB from '../server/config/database.js';
+import connectDB from '../server/config/database';
 
 // Import routes
-import authRoutes from '../server/routes/authRoutes.js';
-import profileRoutes from '../server/routes/profileRoutes.js';
-import serviceRoutes from '../server/routes/serviceRoutes.js';
-import blogRoutes from '../server/routes/blogRoutes.js';
-import storyRoutes from '../server/routes/storyRoutes.js';
-import pricingRoutes from '../server/routes/pricingRoutes.js';
+import authRoutes from '../server/routes/authRoutes';
+import profileRoutes from '../server/routes/profileRoutes';
+import serviceRoutes from '../server/routes/serviceRoutes';
+import blogRoutes from '../server/routes/blogRoutes';
+import storyRoutes from '../server/routes/storyRoutes';
+import pricingRoutes from '../server/routes/pricingRoutes';
 
 // Load environment variables
 dotenv.config();
@@ -49,7 +49,7 @@ const allowedOrigins = [
 ].filter(Boolean);
 
 const corsOptions = {
-  origin: (origin, callback) => {
+  origin: (origin: string | undefined, callback: (err: Error | null, allow?: boolean) => void) => {
     // Allow non-browser requests or same-origin
     if (!origin) return callback(null, true);
 
@@ -87,7 +87,7 @@ app.use('/api/stories', storyRoutes);
 app.use('/api/pricing', pricingRoutes);
 
 // Error handling middleware
-app.use((err, req, res, next) => {
+app.use((err: any, req: any, res: any, next: any) => {
   console.error('Error:', err);
   res.status(err.status || 500).json({
     success: false,
@@ -96,11 +96,11 @@ app.use((err, req, res, next) => {
 });
 
 // Export for Vercel serverless
-export default async function handler(req, res) {
+export default async function handler(req: any, res: any) {
   try {
     // Ensure database connection before routing
     await ensureDbConnection();
-  } catch (err) {
+  } catch (err: any) {
     console.error('Database connection error:', err);
     return res.status(500).json({
       success: false,
