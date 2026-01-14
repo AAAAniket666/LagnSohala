@@ -30,10 +30,41 @@ async function ensureDbConnection() {
 }
 
 // Middleware
-app.use(cors({
-  origin: ['https://*.vercel.app', 'http://localhost:5173', 'http://localhost:5174'],
+const deploymentHost = process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL}`
+  : undefined;
+
+const envAllowed = process.env.ALLOWED_ORIGINS
+  ? process.env.ALLOWED_ORIGINS.split(',').map(o => o.trim()).filter(Boolean)
+  : [];
+
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:5174',
+  'https://lagnasohala.vercel.app',
+  'https://lagn-sohala-demo.vercel.app',
+  deploymentHost,
+  ...envAllowed,
+].filter(Boolean);
+
+const corsOptions = {
+  origin: (origin, callback) => {
+    // Allow non-browser requests or same-origin
+    if (!origin) return callback(null, true);
+
+    const isAllowed =
+      allowedOrigins.includes(origin) ||
+      /\.vercel\.app$/.test(origin) ||
+      /localhost(:\d+)?$/.test(origin);
+
+    return isAllowed
+      ? callback(null, true)
+      : callback(new Error('Not allowed by CORS'));
+  },
   credentials: true,
-}));
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
